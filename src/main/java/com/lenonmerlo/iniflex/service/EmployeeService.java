@@ -24,7 +24,7 @@ public class EmployeeService {
                 .collect(Collectors.groupingBy(Employee::getRole, LinkedHashMap::new, Collectors.toList()));
     }
 
-    public List<Employee> birthdaysInMonths(List<Employee> list, init... months) {
+    public List<Employee> birthdaysInMonths(List<Employee> list, int... months) {
         Set<Integer> ms = Arrays.stream(months).boxed().collect(Collectors.toSet());
         return list.stream()
                 .filter(e -> ms.contains(e.getBirthDate().getMonthValue()))
