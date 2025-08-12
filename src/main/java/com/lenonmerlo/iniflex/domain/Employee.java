@@ -1,4 +1,4 @@
-// src/main/java/com/lenonmerlo/iniflex/domain/Employee.java
+
 package com.lenonmerlo.iniflex.domain;
 
 import java.math.BigDecimal;
