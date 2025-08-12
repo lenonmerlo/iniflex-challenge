@@ -12,8 +12,12 @@ import java.util.stream.Collectors;
 
 public class EmployeeService {
 
-    public void removeByName(List<Employee> list, BigDecimal percent) {
-        BigDecimal factor = BigDecimal.ONE.add(percent);
+    public void removeByName(List<Employee> list, String name) {
+        list.removeIf(e -> e.getName().equalsIgnoreCase(name));
+    }
+
+    public void applyRaise(List<Employee> list, BigDecimal percent) {
+        BigDecimal factor = BigDecimal.ONE.add(percent); // 0.10 -> 1.10
         list.forEach(e -> e.setSalary(
                 e.getSalary().multiply(factor).setScale(2, RoundingMode.HALF_UP)
         ));
@@ -42,7 +46,6 @@ public class EmployeeService {
                 .collect(Collectors.toList());
     }
 
-
     public BigDecimal totalSalaries(List<Employee> list) {
         return list.stream().map(Employee::getSalary)
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
@@ -56,5 +59,4 @@ public class EmployeeService {
     public int age(LocalDate birthDate) {
         return Period.between(birthDate, LocalDate.now()).getYears();
     }
-
 }
