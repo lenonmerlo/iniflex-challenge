@@ -1,17 +1,18 @@
+// src/main/java/com/lenonmerlo/iniflex/Main.java
 package com.lenonmerlo.iniflex;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.lenonmerlo.iniflex.domain.Employee;
+import com.lenonmerlo.iniflex.domain.Person;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Person p = new Person("Lenon", LocalDate.of(1990, 1, 1));
+        Employee e = new Employee("Lenon", LocalDate.of(1990, 1, 1), new BigDecimal("5000.00"), "Developer");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        System.out.println(p);
+        System.out.println(e);
     }
 }
